@@ -119,10 +119,14 @@ clearDoneBtn.addEventListener('click', clearDone);
 initAuth();
 
 const appScreen = document.getElementById('appScreen');
-const observer = new MutationObserver(() => {
-  if (!appScreen.classList.contains('hidden')) {
-    observer.disconnect();
-    loadTodos();
-  }
-});
-observer.observe(appScreen, { attributes: true, attributeFilter: ['class'] });
+if (!appScreen.classList.contains('hidden')) {
+  loadTodos();
+} else {
+  const observer = new MutationObserver(() => {
+    if (!appScreen.classList.contains('hidden')) {
+      observer.disconnect();
+      loadTodos();
+    }
+  });
+  observer.observe(appScreen, { attributes: true, attributeFilter: ['class'] });
+}
