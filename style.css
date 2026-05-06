@@ -358,3 +358,20 @@ h1 {
 #clearDone:hover {
   background: #fff5f5;
 }
+
+/* VERSION BAR */
+.version-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 0.75rem;
+  color: #a0aec0;
+  letter-spacing: 0.3px;
+  z-index: 100;
+}

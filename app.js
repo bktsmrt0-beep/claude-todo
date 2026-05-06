@@ -1,3 +1,4 @@
+const VERSION = 'v1.4.0';
 const BASE = `${SUPABASE_URL}/rest/v1/todos`;
 
 function getHeaders() {
@@ -116,6 +117,19 @@ addBtn.addEventListener('click', addTodo);
 input.addEventListener('keydown', e => { if (e.key === 'Enter') addTodo(); });
 clearDoneBtn.addEventListener('click', clearDone);
 
+function startClock() {
+  const el = document.getElementById('versionInfo');
+  function tick() {
+    const now = new Date();
+    const date = now.toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    const time = now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    el.textContent = `${VERSION} · ${date} ${time}`;
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+startClock();
 initAuth();
 
 const appScreen = document.getElementById('appScreen');
